@@ -120,7 +120,7 @@ export class Game {
       // Utiliser this.gameOver() pour mettre fin a la partie
     }
 
-    // TODO: implementer la detection d'un ennemi qiui atteint le bas de l'ecran
+    // TODO: implementer la detection d'un ennemi qui atteint le bas de l'ecran
     // Utiliser this.gameOver() pour mettre fin a la partie
 
   }
