@@ -110,11 +110,20 @@ export class Game {
           // such a bad idea :)
           this.wave.enemies.splice(enemyIndex, 1);
           this.hero.missiles.splice(missileIndex, 1);
-          // TODO: ajouter des points au score pour la destruction d'un ennemi
+          // ajouter des points au score pour la destruction d'un ennemi
+          this.score++;
         }
       }
       // TODO implémenter la detection de collision entre les ennemis et le hero
       // Utiliser this.gameOver() pour mettre fin a la partie
+      if (
+        detectCollision(
+          this.hero,
+          this.wave.enemies[enemyIndex]
+        )
+      ) {
+        this.gameOver()
+      }
 
       // TODO: implementer la detection de collision entre le hero et les missiles ennemis
       // Utiliser this.gameOver() pour mettre fin a la partie
