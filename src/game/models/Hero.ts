@@ -87,8 +87,6 @@ export class Hero extends MoveableRectangle {
 
   private fireMissile() {
     console.log('Hero fire missile');
-    this.missiles.push(this.createMissile())
-    // TODO: implementer le lancement de missiles
-    // il suffit d'ajouter un missile (crée via this.createMissile()) dans la liste this.missiles
+    this.missiles.push(this.createMissile());
   }
 }

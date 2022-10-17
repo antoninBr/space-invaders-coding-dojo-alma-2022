@@ -62,7 +62,7 @@ export class EnemyWave extends MoveableRectangle {
 
   private goRight() {
     this.verticalSpeed = 0;
-    this.horizontalSpeed = -EnemyWave.HORIZONTAL_SPEED;
+    this.horizontalSpeed = EnemyWave.HORIZONTAL_SPEED;
   }
 
   private isGoingRight(): boolean {
@@ -75,7 +75,7 @@ export class EnemyWave extends MoveableRectangle {
 
   move(deltaTime: number) {
 
-    // TODO: implémenter le mouvement typique des space invaders:
+    // Implémenter le mouvement typique des space invaders:
     // - glisser de gauche a droite (this.isGoingRight() == true)
     // - une fois atteint le bord de l'ecran (this.right > EnemyWave.MAX_RIGHT)
     // descendre durant 1 seconde (this.delta >= EnemyWave.MAX_DELTA_TIME_DOWN)
@@ -87,6 +87,15 @@ export class EnemyWave extends MoveableRectangle {
     // ---
     // la variable this.delta vous permet de mesurer le temps passé a descendre
     // (this.delta += deltaTime;)
+
+    if (this.isGoingRight() && this.right > EnemyWave.MAX_RIGHT) {
+      this.goDown();
+      setTimeout(this.goLeft.bind(this), 1000);
+    }
+    if (this.isGoingLeft() && this.left < EnemyWave.MIN_LEFT) {
+      this.goDown();
+      setTimeout(this.goRight.bind(this), 1000);
+    }
 
     this.offset(this.horizontalSpeed * deltaTime, this.verticalSpeed * deltaTime);
   }
