@@ -16,7 +16,7 @@ export class EnemyWave extends MoveableRectangle {
   delta = 0;
 
   constructor(
-    protected registerMoveable: (MoveableRectangle) => void,
+    protected registerMoveable: (m: MoveableRectangle) => void,
     public enemies: Enemy[],
   ) {
     super(registerMoveable, 0, 0, 0, 0);

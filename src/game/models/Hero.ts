@@ -20,7 +20,7 @@ export class Hero extends MoveableRectangle {
 
   missiles: Missile[] = [];
 
-  constructor(protected registerMoveable: (MoveableRectangle) => void, left: number, top: number) {
+  constructor(protected registerMoveable: (m: MoveableRectangle) => void, left: number, top: number) {
     super(registerMoveable, left, top, Hero.WIDTH, Hero.HEIGHT);
   }
 

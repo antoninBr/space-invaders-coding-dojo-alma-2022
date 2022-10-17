@@ -60,7 +60,7 @@ export abstract class MoveableRectangle extends Rectangle {
   abstract horizontalSpeed: number;
 
   protected constructor(
-    protected registerMoveable: (MoveableRectangle) => void,
+    protected registerMoveable: (m: MoveableRectangle) => void,
     _left: number,
     _top: number,
     _width: number,

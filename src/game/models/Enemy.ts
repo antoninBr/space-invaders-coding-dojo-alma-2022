@@ -1,5 +1,5 @@
 import { Missile } from './Missile';
-import { Rectangle } from './Rectangle';
+import { MoveableRectangle, Rectangle } from './Rectangle';
 
 
 export class Enemy extends Rectangle {
@@ -9,7 +9,7 @@ export class Enemy extends Rectangle {
   missiles: Missile[] = [];
 
   constructor(
-    protected registerMoveable: (MoveableRectangle) => void,
+    protected registerMoveable: (m: MoveableRectangle) => void,
     left: number,
     top: number,
   ) {
