@@ -82,8 +82,13 @@ export class Game {
   loop(deltaTime: number) {
     this.mobiles.forEach(m => m.move(deltaTime));
     this.collisionDetection();
-    // TODO faire tirer des missiles a intervalle random par les ennemis
+    // TODO: faire tirer des missiles a intervalle random par les ennemis
     // utiliser Math.random() pour un nombre entre 0 et 1
+    this.wave.enemies.forEach(en => {
+      if (Math.random() < 0.001) {
+        en.fireMissile()
+      }
+    })
   }
 
   /**
