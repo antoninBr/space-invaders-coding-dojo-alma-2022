@@ -1,7 +1,7 @@
 import { Enemy } from './Enemy';
+import { EnemyType } from './Enemy';
 import { EnemyWave } from './EnemyWave';
 import { Hero } from './Hero';
-import { Missile } from './Missile';
 import { detectCollision, isOutside, MoveableRectangle, Rectangle } from './Rectangle';
 
 /*
@@ -60,7 +60,8 @@ export class Game {
         pos => new Enemy(
           this.registerMoveable.bind(this),
           pos.left,
-          pos.top),
+          pos.top,
+          this.randomEnumValue(EnemyType)),
       ),
     );
   }
@@ -72,6 +73,12 @@ export class Game {
 
   private registerMoveable(mobile: MoveableRectangle): void {
     this.mobiles.push(mobile);
+  }
+
+  private randomEnumValue = (enumeration: { [x: string]: any; }) => {
+    const values = Object.keys(enumeration);
+    const enumKey = values[Math.floor(Math.random() * values.length)];
+    return enumeration[enumKey];
   }
 
   /**
@@ -119,7 +126,7 @@ export class Game {
           this.score++;
         }
       }
-      // TODO implémenter la detection de collision entre les ennemis et le hero
+      // TODO: implémenter la detection de collision entre les ennemis et le hero
       // Utiliser this.gameOver() pour mettre fin a la partie
       if (
         detectCollision(

@@ -13,7 +13,7 @@ const useAnimationFrame = () => {
     const previousTimeRef = React.useRef<number>();
     const gameRef = React.useRef<Game>();
 
-    const animate = time => {
+    const animate = (time: number) => {
         if (previousTimeRef.current !== undefined) {
             const deltaTime = time - previousTimeRef.current;
 

@@ -5,6 +5,7 @@ import { Missiles } from './Missiles';
 import { Game } from './models/Game';
 import { Score } from './Score';
 import './Playground.css';
+import { EnemyMissiles } from './EnemyMissiles';
 
 export const Playground: React.FC<{ game: Game }> = ({ game }) => {
 
@@ -17,7 +18,10 @@ export const Playground: React.FC<{ game: Game }> = ({ game }) => {
   }, []);
 
   const missiles = [
-    ...game.hero.missiles,
+    ...game.hero.missiles
+  ];
+
+  const enemyMissiles = [
     ...game.wave.enemies.flatMap(enemy => enemy.missiles),
   ];
   const enemies = game.wave.enemies;
@@ -30,6 +34,7 @@ export const Playground: React.FC<{ game: Game }> = ({ game }) => {
          ref={thisRef}>
       <Hero hero={game.hero}/>
       <Missiles missiles={missiles}/>
+      <EnemyMissiles missiles={enemyMissiles} />
       <Enemies enemies={enemies}/>
       <Score score={game.score}/>
     </div>
